@@ -436,7 +436,7 @@ EMG Data:
         # Display raw WebSocket data in the text box with timestamp
         if isinstance(data, bytes) and len(data) > 0:
             import time
-            timestamp = time.strftime("%H:%M:%S.%f")[:-3]  # Include milliseconds
+            timestamp = datetime.now().strftime("%H:%M:%S.%f")[:-3]  # milisegundos  # Include milliseconds
             hex_data = data.hex(' ').upper()
             # Limit hex display to first 50 bytes for readability
             if len(data) > 50:
@@ -460,7 +460,7 @@ EMG Data:
             packet_types = {DATA_TYPE_EMG: "EMG", DATA_TYPE_IMU: "IMU", DATA_TYPE_STATUS: "STATUS"}
             packet_type_name = packet_types.get(self.type, f"UNKNOWN({self.type})")
             import time
-            timestamp = time.strftime("%H:%M:%S.%f")[:-3]
+            timestamp = datetime.now().strftime("%H:%M:%S.%f")[:-3]  # milisegundos
             self.ui.rawDataTextEdit.appendPlainText(f"[{timestamp}] WebSocket Packet: {packet_type_name}, Size: {self.size}")
             
             # Debug packet info
@@ -556,7 +556,7 @@ EMG Data:
         # Display raw bytes in the text box with timestamp and type info
         if isinstance(data, bytes):
             import time
-            timestamp = time.strftime("%H:%M:%S.%f")[:-3]  # Include milliseconds
+            timestamp = datetime.now().strftime("%H:%M:%S.%f")[:-3]  # milisegundos  # Include milliseconds
             hex_data = data.hex(' ').upper()
             # Limit hex display to first 50 bytes for readability
             if len(data) > 50:
@@ -567,7 +567,7 @@ EMG Data:
         elif isinstance(data, int):
             # Display single byte values (like type and size)
             import time
-            timestamp = time.strftime("%H:%M:%S.%f")[:-3]
+            timestamp = datetime.now().strftime("%H:%M:%S.%f")[:-3]  # milisegundos
             self.ui.rawDataTextEdit.appendPlainText(f"[{timestamp}] USB Byte: 0x{data:02X} ({data})")
 
         # Add debugging for USB data
@@ -591,7 +591,7 @@ EMG Data:
                 packet_types = {DATA_TYPE_EMG: "EMG", DATA_TYPE_IMU: "IMU", DATA_TYPE_STATUS: "STATUS"}
                 packet_type_name = packet_types.get(self.type, f"UNKNOWN({self.type})")
                 import time
-                timestamp = time.strftime("%H:%M:%S.%f")[:-3]
+                timestamp = datetime.now().strftime("%H:%M:%S.%f")[:-3]  # milisegundos
                 self.ui.rawDataTextEdit.appendPlainText(f"[{timestamp}] USB Packet: {packet_type_name}, Size: {self.size}")
                 
                 # Debug packet info
