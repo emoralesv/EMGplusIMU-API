@@ -10,7 +10,7 @@ mt.connect_serial("COM6")
 time.sleep(1)  
 mt.start_serial()
 
-mt.live_plot_emg_pg(window_sec=10, refresh_hz=30, differential=False)
+
        
 mt.stop_serial()
 mt.disconnect_serial()
