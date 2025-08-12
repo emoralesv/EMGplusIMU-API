@@ -19,7 +19,7 @@ import serial.tools.list_ports as portList
 from serialCoder import SerialCoder
 from scipy.signal import iirnotch, filtfilt, butter
 
-from WebSocketClient import WebSocketClient
+from SDK._utils.WebSocketClient import WebSocketClient
 
 
 # Tipos de paquete (idénticos al GUI)
@@ -272,7 +272,7 @@ class MioTracker:
                 pass
         except Exception:
             pass
-    # Requiere: pip install pyqtgraph pyqt6
+
 
 
     
